@@ -40,32 +40,34 @@ int Pop(struct Stack *ptr){
     }  
 }
 
+int Peek(struct Stack *ptr , int pos) {
+    int element = ptr->top - pos + 1;
+    if(pos <= ptr->top + 1 && pos > 0){
+        return  ptr->arr[element] ;
+    }
+    else{
+        printf("Index out of range\n");
+        return -1;
+    }
+}
+
 int main(){
 
     struct Stack *S;
     S->top = -1;
-    S->size = 5;
+    S->size = 7;
     S->arr = new int[S->size];
 
-    Push(S,25);
-    Push(S,26);
-    Push(S,27);
-    Push(S,28);
-    Push(S,29);
-    Push(S,30);
+for(int i=25; i<30; i++){   
+     Push(S,i);
+}
 
-    cout<<S->arr[0]<<" is pushed."<<endl;
-    cout<<S->arr[1]<<" is pushed."<<endl;
-    cout<<S->arr[2]<<" is pushed."<<endl;
-    cout<<S->arr[3]<<" is pushed."<<endl;
-    cout<<S->arr[4]<<" is pushed."<<endl;
+Pop(S);
 
-    Pop(S);
-    Pop(S);
-    Pop(S);
-    Pop(S);
-    Pop(S);
-    Pop(S);
+for(int i=1; i<5; i++){   
+     cout<<Peek(S,i)<<" ";
+}
+
 
     delete[] S->arr;
     delete S;
