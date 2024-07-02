@@ -24,7 +24,6 @@ int Push(struct Stack *ptr , int value){
     else {
         ptr->top++;
         ptr->arr[ptr->top] = value;
-        printf("%d is pushed.\n", value);
         return 0;
     }
 }
@@ -42,32 +41,35 @@ int Pop(struct Stack *ptr){
     }  
 }
 
+int Peek(struct Stack *ptr , int pos) {
+    int element = ptr->top - pos + 1;
+    if(pos <= ptr->top + 1 && pos > 0){
+        return  ptr->arr[element] ;
+    }
+    else{
+        printf("Index out of range\n");
+        return -1;
+    }
+}
+
 int main(){
 
     struct Stack *S;
     S->top = -1;
-    S->size = 5;
+    S->size = 25;
     S->arr = (int *)malloc(S->size * sizeof(int));
 
-    Push(S,25);
-    Push(S,26);
-    Push(S,27);
-    Push(S,28);
-    Push(S,29);
-    Push(S,30);
+for(int i = 1; i < 11; i++){
+        Push(S,i);
+    
+}
 
-    printf("%d is in array \n" ,S->arr[0]);
-    printf("%d is in array \n" ,S->arr[1]);
-    printf("%d is in array \n" ,S->arr[2]);
-    printf("%d is in array \n" ,S->arr[3]);
-    printf("%d is in array \n" ,S->arr[4]);
+Pop(S);
 
-    Pop(S);
-    Pop(S);
-    Pop(S);
-    Pop(S);
-    Pop(S);
-    Pop(S);
+for(int i = 1; i < 10; i++){
+  printf("%d ",Peek(S,i));
+}
+
     
     return 0;
 }
