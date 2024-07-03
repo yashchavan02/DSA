@@ -52,6 +52,13 @@ int Peek(struct Stack *ptr , int pos) {
     }
 }
 
+int StackTop(struct Stack *ptr ){
+    return ptr->arr[ptr->top];
+}
+
+int StackBottom(struct Stack *ptr){
+    return ptr->arr[0];
+}
 int main(){
 
     struct Stack *S;
@@ -70,6 +77,8 @@ for(int i = 1; i < 10; i++){
   printf("%d ",Peek(S,i));
 }
 
+printf("\nTop element: %d", StackTop(S));
+printf("\nBottom element: %d", StackBottom(S));
     
     return 0;
 }
