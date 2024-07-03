@@ -51,6 +51,13 @@ int Peek(struct Stack *ptr , int pos) {
     }
 }
 
+int StackTop(struct Stack *ptr ){
+    return ptr->arr[ptr->top];
+}
+
+int StackBottom(struct Stack *ptr){
+    return ptr->arr[0];
+}
 int main(){
 
     struct Stack *S;
@@ -68,6 +75,9 @@ for(int i=1; i<5; i++){
      cout<<Peek(S,i)<<" ";
 }
 
+
+cout<<"\nTop element "<<StackTop(S)<<endl;
+cout<<"Bottom element "<<StackBottom(S);
 
     delete[] S->arr;
     delete S;
