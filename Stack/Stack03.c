@@ -31,6 +31,19 @@ struct Node* Push(struct Node* Top, int value) {
     }
 }
 
+int Pop(struct Node** Top) {
+    if (IsEmpty(*Top)) {
+        printf("Stack Underflow ! Cannot Pop Element \n");
+        return 0;
+    } else {
+        struct Node* ptr = *Top;
+        int value = ptr->Data;
+        *Top = ptr->next;
+        free(ptr);
+        return value;
+    }
+}
+
 void PrintLinkedList(struct Node* ptr) {
     while (ptr != NULL) {
         printf("%d ", ptr->Data);
@@ -54,7 +67,10 @@ int main() {
     Top = Push(Top, 19);
     Top = Push(Top, 20);
 
+    printf("Popped element: %d\n", Pop(&Top));
+
     PrintLinkedList(Top);
+
 
     bool checkIsEmpty = IsEmpty(Top);
 
