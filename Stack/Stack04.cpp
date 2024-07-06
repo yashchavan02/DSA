@@ -11,7 +11,7 @@ bool IsEmpty(struct Node* Top) {
 }
 
 bool IsFull() {
-    struct Node* ptr = (struct Node*)malloc(sizeof(struct Node));
+    struct Node* ptr = new struct Node;
     bool full = ptr == NULL;
     delete ptr; 
     return full;
@@ -22,7 +22,7 @@ struct Node* Push(struct Node* Top, int value) {
         cout<<"Stack Overflow ! Cannot push "<<value<<endl;
         return Top;
     } else {
-        struct Node* ptr = (struct Node*)malloc(sizeof(struct Node));
+        struct Node* ptr = new struct Node;
         ptr->Data = value;
         ptr->next = Top;
         Top = ptr;
@@ -42,6 +42,19 @@ int Pop(struct Node** Top) {
         delete ptr;
         return value;
     }
+}
+
+int Peek(struct Node* Top , int pos) {
+    struct Node* ptr = Top;
+    for(int i = 0;(i < pos-1 && ptr!=NULL); i++) {
+         ptr = ptr->next;
+    }
+      if(ptr!=NULL){
+        return ptr->Data;
+      } 
+      else {
+       return -1 ;
+      }
 }
 
 void PrintLinkedList(struct Node* ptr) {
@@ -70,6 +83,10 @@ int main() {
     cout<<"Popped element: "<<Pop(&Top)<<endl;
 
     PrintLinkedList(Top);
+
+    int pos = 3;
+
+    cout<<"The element "<<Peek(Top, pos)<<" is present at pos "<<pos<<endl;
 
     bool checkIsEmpty = IsEmpty(Top);
 
