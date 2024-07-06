@@ -44,6 +44,19 @@ int Pop(struct Node** Top) {
     }
 }
 
+int Peek(struct Node* Top , int pos) {
+    struct Node* ptr = Top;
+    for(int i = 0;(i < pos-1 && ptr!=NULL); i++) {
+         ptr = ptr->next;
+    }
+      if(ptr!=NULL){
+        return ptr->Data;
+      } 
+      else {
+       return -1 ;
+      }
+}
+
 void PrintLinkedList(struct Node* ptr) {
     while (ptr != NULL) {
         printf("%d ", ptr->Data);
@@ -70,6 +83,8 @@ int main() {
     printf("Popped element: %d\n", Pop(&Top));
 
     PrintLinkedList(Top);
+
+   printf("The element %d is present at 1\n",Peek(Top , 1));
 
 
     bool checkIsEmpty = IsEmpty(Top);
