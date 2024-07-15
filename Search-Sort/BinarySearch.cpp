@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int BinarySearch(int arr[], int Element){
+
+    int Low, Mid, High;
+    Low = 0;
+    High = 6;
+
+    while (Low <= High){
+
+        Mid = (Low + High) / 2;
+
+        if (arr[Mid] == Element){
+            return Mid;
+          }
+
+        else if (arr[Mid] < Element){
+            Low = Mid + 1;
+          }
+        else{
+            High = Mid - 1;
+          }
+    }
+   return -1; 
+}
+
+int main(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    int Element = 6;
+    int Result = BinarySearch(arr, Element);
+    if(Result != -1){
+      cout << "The " << Element << " is Found at index " << Result << endl;
+    }
+    else{
+      cout << "The " << Element << " is not Found" << endl;
+    }
+
+    return 0;
+}
