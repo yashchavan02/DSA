@@ -12,7 +12,12 @@ int LinearSearch(int arr[], int Element){
 int main() {
     int arr[] = {1, 2, 3, 5, 6, 7};
     int Element = 14;
-    int Result = LinearSearch(arr, Element);   
-    printf("The %d is present at index %d", Element, Result);
+    int Result = LinearSearch(arr, Element); 
+    if(Result == -1){
+        printf("The %d is not present in array.", Element);
+    }
+    else { 
+        printf("The %d is present at index %d", Element, Result);
+    }
     return 0;
 }
