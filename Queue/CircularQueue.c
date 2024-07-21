@@ -35,7 +35,7 @@ int DeQueue(struct CirculerQueue* Q){
     } else {
         Q->FrontEnd =  ((Q->FrontEnd + 1) % Q->Size) ;        
         Q->Count--;
-        return Q->arr[Q->FrontEnd];;
+        return Q->arr[Q->FrontEnd];
     }
 }
 
