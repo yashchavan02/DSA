@@ -10,12 +10,12 @@ struct Node {
 
 struct Node* newNode(int data) {
     struct Node* T = new struct Node;
-    if(T == NULL) {
+    if(T == nullptr) {
         cout<<"Memory Is Full."<<endl;
         exit(0);
     }
     else {
-        T->left = T->right = NULL;
+        T->left = T->right = nullptr;
         T->Data = data;
         return T;
     }
@@ -38,11 +38,11 @@ T2->right = T5;
 
 /*
 
-            10
+            10 --- Root
            /  \
-          11  12
+          11  12 - Child of Root
          /  \
-        13  14
+        13  14 --- Leaf Node
 
 */
 

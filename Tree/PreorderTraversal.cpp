@@ -9,8 +9,8 @@ struct Node {
 };
 
 void Preorder(struct Node* Root){
-    if(Root != NULL){
-    printf("%d ",Root->Data);
+    if(Root != nullptr){
+    cout<<Root->Data<<" ";
     Preorder(Root->left);
     Preorder(Root->right);
     }
@@ -18,12 +18,12 @@ void Preorder(struct Node* Root){
 
 struct Node* newNode(int data) {
     struct Node* T = new struct Node;
-    if(T == NULL) {
+    if(T == nullptr) {
         cout<<"Memory Is Full."<<endl;
         exit(0);
     }
     else {
-        T->left = T->right = NULL;
+        T->left = T->right = nullptr;
         T->Data = data;
         return T;
     }
@@ -46,11 +46,11 @@ T1->right = T4;
 
 /*
 
-            110
+            110  --- Root
            /   \
-         111   112
+         111   112 - Child of Root
         /   \
-       113  114
+       113  114  --- Leaf Node
         
     ans : 110 111 113 114 112
 

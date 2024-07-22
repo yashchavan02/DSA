@@ -45,11 +45,11 @@ T1->right = T4;
 
 /*
 
-            0
-           /  \
-          1    2
-         /  \
-        3    4
+            0 --- Root
+           / \
+          1   2 - Child of Root
+         / \
+        3   4 --- Leaf Node
         
     ans : 0 1 3 4 2
 
