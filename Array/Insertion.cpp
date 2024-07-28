@@ -21,10 +21,10 @@ int main() {
     int TotalSize = sizeof(arr) / sizeof(arr[0]);
     int CurrentSize = 6;
     int Index = 3;
-    int Element = 4;
+    int Element = 4; 
     cout<<"Before Insert"<<endl;
     PrintArray(arr,CurrentSize);
-
+    
     InsertElement(arr, CurrentSize, Index, Element);
     CurrentSize += 1;
     cout<<"After Insert"<<endl;
