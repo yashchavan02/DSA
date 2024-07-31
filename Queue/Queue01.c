@@ -52,17 +52,8 @@ int main() {
     Q->FrontEnd = -1;
     Q->BackEnd = -1;
 
-    // EnQueue(Q ,9);
-    // EnQueue(Q ,10);
-    // DeQueue(Q);
-    // DeQueue(Q);
-    // EnQueue(Q ,11);
-    // EnQueue(Q ,12);
-    // EnQueue(Q ,13);
-    // EnQueue(Q ,14);
-    // EnQueue(Q ,15);
-    // EnQueue(Q ,16);
-    // EnQueue(Q ,17);
+    EnQueue(Q ,9);
+    EnQueue(Q ,10);
 
     for(int i = 11 ; i < 21 ; i++){
         EnQueue(Q ,i); 
