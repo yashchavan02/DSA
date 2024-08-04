@@ -40,6 +40,13 @@ struct Node* InsertAtIndex(struct Node* Head, int Data ,int Index) {
   return Head;
 }
 
+struct Node* InsertAfter(struct Node* Head, struct Node* GivenNode, int Data) {
+    struct Node* ptr = (struct Node*)malloc(sizeof(struct Node));
+    ptr->data = Data;
+    ptr->next = GivenNode->next; 
+    GivenNode->next = ptr; 
+    return Head;
+}
 
 struct Node* InsertAtEnd(struct Node* Head, int Data) {
   struct Node *ptr = new Node;
@@ -91,9 +98,15 @@ int main() {
     Head = InsertAtIndex(Head,9,8);
 
     Head = InsertAtEnd(Head, 13);
-    Head = InsertAtEnd(Head, 14);
     Head = InsertAtEnd(Head, 15);
     Head = InsertAtEnd(Head, 16);
+
+    struct Node * Temp = (struct Node*)malloc(sizeof(struct Node));
+    Temp = Head; 
+
+    while(Temp->data != 13 ) Temp = Temp->next;
+                                   
+    Head = InsertAfter(Head,Temp,14);
 
     LinkedList(Head);
  
