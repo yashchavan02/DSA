@@ -7,7 +7,7 @@ using namespace std;
 int Maxsizeint(int arr[],int size){
     int maxint = arr[0];
     int i = 1;
-    for(int i;i<size;i++) if(arr[i]>arr[0]) maxint = arr[i];
+    for(int i;i<size;i++) if(arr[i]>maxint) maxint = arr[i];
     return (to_string(maxint)).length();
 }
 
