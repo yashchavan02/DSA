@@ -1,13 +1,12 @@
 #include<iostream>
-#include<string.h>
 #include<cmath>
 
 using namespace std;
 
 int Maxsizeint(int arr[],int size){
-    int maxint = arr[0];
+    int countDigit , maxint = arr[0];
     for (int i = 1; i < size; i++) if (arr[i] > maxint) maxint = arr[i];
-    return to_string(maxint).length();
+    return countDigit = (maxint == 0) ? 1 : static_cast<int>(log10(abs(maxint))) + 1;
 }
 
 void RadixSort(int arr[], int size){
@@ -30,7 +29,7 @@ void RadixSort(int arr[], int size){
 }
 
 int main() {
-    int arr[] = {1487, 85, 1030, 142, 75, 57650, 4};
+    int arr[] = {1487, 85, 1030, 142, 75, 57650, 4,1487, 85, 1030, 142, 75, 57650, 4};
     int size = sizeof(arr) / sizeof(int);
     RadixSort(arr, size);
     return 0;
