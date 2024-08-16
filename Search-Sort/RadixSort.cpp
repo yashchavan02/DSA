@@ -15,13 +15,11 @@ void RadixSort(int arr[], int size){
     int maxDigits = Maxsizeint(arr, size);
     for (d = 0; d < maxDigits; d++){
         int CountArr[10] = {0};
-        for (int i = 0; i < size; i++) CountArr[int(arr[i] / pow(10, d)) % 10]++;
+        for (int i = 0; i < size; i++) CountArr[static_cast<int>(arr[i] / pow(10, d)) % 10]++;
         for (int i = 1; i < 10; i++) CountArr[i] += CountArr[i - 1];
-        for (int i = 8; i >= 0; i--) CountArr[i + 1] = CountArr[i];
-        CountArr[0] = 0;
-        for (int i = 0; i < size; i++) {
-            TempArr[CountArr[int(arr[i] / pow(10, d)) % 10]] = arr[i];
-            CountArr[int(arr[i] / pow(10, d)) % 10]++;
+        for (int i = size - 1; i >= 0; i--) {
+            TempArr[CountArr[static_cast<int>(arr[i] / pow(10, d)) % 10] - 1] = arr[i];
+            CountArr[static_cast<int>(arr[i] / pow(10, d)) % 10]--;
         }
         for (int i = 0; i < size; i++) arr[i] = TempArr[i]; 
     }
@@ -29,7 +27,7 @@ void RadixSort(int arr[], int size){
 }
 
 int main() {
-    int arr[] = {1487, 85, 1030, 142, 75, 57650, 4,1487, 85, 1030, 142, 75, 57650, 4};
+    int arr[] = {24,564,87,0,430,505,34532};
     int size = sizeof(arr) / sizeof(int);
     RadixSort(arr, size);
     return 0;
